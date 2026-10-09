@@ -61,7 +61,7 @@ export const SECURITY_POINTS = [
   { icon: 'ShieldCheck', title: 'Signals, not verdicts', text: 'Monitoring events are prompts for human review. They are not proof of misconduct, and decisions stay with your staff.' },
   { icon: 'Users', title: 'Role-based access', text: 'The platform separates student, lecturer and administrator areas, so each role sees the tools meant for it.' },
   { icon: 'IdCard', title: 'Identity steps are visible', text: 'Students are told when sign-in, QR and selfie checks are needed, and warnings appear on screen during the exam.' },
-  { icon: 'Lock', title: 'Details to be confirmed', text: 'Data retention, encryption, hosting and compliance information has not been published yet. We will not state any until it is verified and documented.' },
+  { icon: 'Lock', title: 'Written down, not just promised', text: 'Our Privacy Policy sets out who owns the data, what is collected, how long it is kept and which standards guide us. DCE is a student project: it uses ISO standards as guidance and is not certified.' },
 ];
 
 // About Us text is paraphrased from the project report "Online Exam Proctoring System"
@@ -93,4 +93,20 @@ export const ABOUT = {
     'Integration with external university grading systems is outside the current scope.',
     'It was built as a prototype for academic use and may need further optimisation, wider testing, and privacy and policy review before large-scale deployment.',
   ],
+};
+
+// "Why this logo" (About page). Written from what the logo visibly contains: a graduation cap on the D,
+// a check mark inside the C, and a bright-red to dark-red gradient across the letters.
+export const LOGO_STORY = {
+  intro: 'The DCE logo is a bold wordmark in two reds, with a graduation cap on the D and a check mark inside the C. Every part of it says something about what we are building.',
+  parts: [
+    { icon: 'GraduationCap', title: 'The graduation cap', text: 'DCE was born in a university and is made for education. The cap sits on the D, the first letter of Digital, to keep learning at the centre of the project.' },
+    { icon: 'ShieldCheck', title: 'The check mark in the C', text: 'The C stands for Communication, and the tick inside it stands for verification: an identity confirmed, an exam completed fairly, a signal reviewed by a person.' },
+    { icon: 'Target', title: 'Bold, simple letters', text: 'Heavy, plain letterforms read clearly at any size, on a phone or a lecture-room screen, and show the straightforward, practical spirit of the platform.' },
+  ],
+  colours: [
+    { name: 'Bright red', hex: '#e0141c', meaning: 'Attention and energy. It stands for alertness: the moment a signal appears and someone should look. It is also the warm, confident voice of the project.' },
+    { name: 'Dark red', hex: '#7a1a1a', meaning: 'Seriousness, security and trust. It is the solid foundation under the bright red: rules, fairness and careful human review. We use it for headings, buttons and the deepest parts of the page.' },
+  ],
+  together: 'The gradient from bright to dark red reads as a journey from noticing to deciding: DCE detects and flags quickly (bright red), then a lecturer reviews with care (dark red). White space around the letters keeps the message calm and clear, and the same two reds carry through every page of this website.',
 };

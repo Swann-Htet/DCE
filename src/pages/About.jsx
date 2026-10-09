@@ -1,6 +1,6 @@
 import Icon from '../components/Icon';
 import Intro from '../components/Intro';
-import { ABOUT } from '../config/content';
+import { ABOUT, LOGO_STORY } from '../config/content';
 import { INSTITUTION, PROGRAM } from '../config/site';
 import { photoUrl, useTeam } from '../lib/supabase';
 
@@ -42,6 +42,44 @@ export default function About() {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      <section className="screen" data-screen="Our logo" aria-labelledby="about-logo">
+        <div className="container logo-story">
+          <div className="logo-stage" data-reveal="scale" style={{ '--i': 1 }}>
+            <img src="/dce-logo.png" alt="The DCE logo: the letters D, C and E in bright and dark red, with a graduation cap on the D and a check mark inside the C" width="560" height="288" loading="lazy" />
+            <ul className="swatches plain">
+              {LOGO_STORY.colours.map((c) => (
+                <li key={c.name}><i style={{ background: c.hex }} aria-hidden="true" /><span>{c.name}</span><code>{c.hex}</code></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <Intro id="about-logo" eyebrow="Our logo" title="Why this logo, and why these reds">{LOGO_STORY.intro}</Intro>
+            <ul className="plain logo-parts">
+              {LOGO_STORY.parts.map((p, i) => (
+                <li key={p.title} data-reveal style={{ '--i': i + 2 }}>
+                  <span className="icon-chip"><Icon name={p.icon} /></span>
+                  <div><h3 className="card-title">{p.title}</h3><p>{p.text}</p></div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section className="screen screen-tint" data-screen="Colours" aria-labelledby="about-colours">
+        <div className="container">
+          <Intro id="about-colours" eyebrow="Our colours" title="Red and dark red: what they represent">{LOGO_STORY.together}</Intro>
+          <ul className="grid grid-2 plain">
+            {LOGO_STORY.colours.map((c, i) => (
+              <li key={c.name} className="card colour-card" data-reveal style={{ '--i': i + 2 }}>
+                <span className="colour-dot" style={{ background: c.hex }} aria-hidden="true" />
+                <div><h3 className="card-title">{c.name} <code>{c.hex}</code></h3><p>{c.meaning}</p></div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

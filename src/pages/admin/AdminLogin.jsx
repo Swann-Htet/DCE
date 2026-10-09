@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LogIn, ShieldCheck } from 'lucide-react';
+import { LogIn } from 'lucide-react';
+import BrandLogo from '../../components/BrandLogo';
 import Field from '../../components/forms/Field';
 import { supabase } from '../../lib/supabase';
 
@@ -24,7 +25,7 @@ export default function AdminLogin() {
   return (
     <div className="admin-center">
       <form className="card admin-card" onSubmit={onSubmit} noValidate aria-labelledby="login-title">
-        <span className="brand-mark brand-mark-lg"><ShieldCheck size={26} aria-hidden="true" /></span>
+        <BrandLogo height={56} className="admin-login-logo" />
         <h1 id="login-title" className="form-title">Admin sign in</h1>
         <Field id="admin-email" label="Email" required type="email" autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} />
         <Field id="admin-password" label="Password" required type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} />

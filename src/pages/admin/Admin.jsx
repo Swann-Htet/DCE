@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Inbox, LogOut, MessageSquareText, ShieldCheck, Users } from 'lucide-react';
+import { BarChart3, Inbox, LogOut, MessageSquareText, Users } from 'lucide-react';
 import { supabase, useAdminSession } from '../../lib/supabase';
 import AdminLogin from './AdminLogin';
 import Overview from './Overview';
@@ -67,7 +67,7 @@ export default function Admin() {
   return (
     <div className="admin">
       <header className="admin-bar">
-        <div className="admin-brand"><span className="brand-mark"><ShieldCheck size={19} aria-hidden="true" /></span> DCE Admin</div>
+        <div className="admin-brand"><img src="/dce-icon.png" alt="" width="34" height="34" className="admin-logo" /> DCE Admin</div>
         <nav aria-label="Admin sections" className="admin-tabs" role="tablist">
           {TABS.map(({ id, label, Icon }) => (
             <button key={id} type="button" role="tab" aria-selected={tab === id} className="admin-tab" onClick={() => setTab(id)}>

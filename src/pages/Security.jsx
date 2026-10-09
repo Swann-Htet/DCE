@@ -27,7 +27,7 @@ export default function Security() {
         <p className="policy-link" data-reveal style={{ '--i': 6 }}>
           <FileCheck2 size={18} aria-hidden="true" />
           <Link to="/privacy">Privacy Policy</Link>
-          <span> (placeholder: official policy content still to be provided)</span>
+          <span> covers data owners, ISO guidance, MFU rules and your rights.</span>
         </p>
       </div>
     </section>

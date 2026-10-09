@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ArrowUpRight, Menu, ShieldCheck, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 import { BRAND_NAME, NAV_LINKS } from '../config/site';
 
 export default function Header() {
@@ -21,8 +22,7 @@ export default function Header() {
       <div className="container">
         <div className="header-pill">
           <Link to="/" className="brand" aria-label={`${BRAND_NAME} home`}>
-            <span className="brand-mark"><ShieldCheck size={19} aria-hidden="true" /></span>
-            <span className="brand-name">{BRAND_NAME}</span>
+            <BrandLogo height={42} />
           </Link>
 
           <nav id="site-nav" className={`nav${open ? ' is-open' : ''}`} aria-label="Primary">
