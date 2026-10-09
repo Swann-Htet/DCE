@@ -1,5 +1,6 @@
 import Icon from '../components/Icon';
 import Intro from '../components/Intro';
+import Linkify from '../components/Linkify';
 import { ABOUT, LOGO_STORY } from '../config/content';
 import { INSTITUTION, PROGRAM } from '../config/site';
 import { photoUrl, useTeam } from '../lib/supabase';
@@ -97,7 +98,7 @@ export default function About() {
                   : <span className="avatar" aria-hidden="true">{initials(m.name)}</span>}
                 <h3 className="card-title">{m.name}</h3>
                 <p>{m.role}</p>
-                {m.bio && <p className="person-bio">{m.bio}</p>}
+                {m.bio && <p className="person-bio"><Linkify text={m.bio} /></p>}
               </li>
             ))}
           </ul>
@@ -109,8 +110,7 @@ export default function About() {
               <div>
                 <p className="eyebrow">{m.role || 'Advisor'}</p>
                 <h3 className="card-title">{m.name}</h3>
-                {m.bio && <p>{m.bio}</p>}
-                <p>Examination committee: {ABOUT.committee.join(' and ')}</p>
+                {m.bio && <p className="person-bio"><Linkify text={m.bio} /></p>}
               </div>
             </div>
           ))}

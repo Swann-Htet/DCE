@@ -86,7 +86,6 @@ export const ABOUT = {
     { name: 'Aung Myint Myat', role: 'Cloud Engineer' },
   ],
   coordinator: 'Asst. Prof. Dr. Suppakarn Chansareewittaya, Ph.D.',
-  committee: ['Asst. Prof. Dr. Sirikan Chucherd, Ph.D.', 'Dr. Titiya Chomngen, Ph.D.'],
   limitations: [
     'DCE is a web-based system; there is no mobile application.',
     'Advanced AI analysis such as emotion recognition, voice analysis or full gaze tracking is not included.',

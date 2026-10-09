@@ -67,3 +67,8 @@
 .footer-logos { gap: 20px; }
 .footer-logos .brand-logo { height: 46px; width: auto; }
 .footer-dept { height: 56px; width: auto; }
+
+/* Links inside profile bios: small, red, no underline */
+.person-bio { font-size: 0.88rem; line-height: 1.5; }
+.bio-link { color: var(--r600); font-size: 0.82rem; font-weight: 600; text-decoration: none; word-break: break-all; transition: color 0.2s; }
+.bio-link:hover, .bio-link:focus-visible { color: var(--r500); text-decoration: none; }
