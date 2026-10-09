@@ -96,18 +96,18 @@
 .fm-chip { position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.95); color: var(--r800); font-size: 0.8rem; font-weight: 700; animation: rise 0.45s var(--ease); }
 .fm-chip.alert { background: var(--r700); color: #fff; }
 .fm-box { fill: none; stroke: var(--r700); stroke-width: 2.5; stroke-dasharray: 26 14; transition: stroke 0.4s; }
-.fm-head { transform-origin: 160px 160px; transition: transform 0.8s var(--ease); }
+.fm-head { transform-origin: 160px 188px; transition: transform 0.8s var(--ease); }
 .fm-main { transition: transform 0.8s var(--ease); }
 .fm-pupils { transition: transform 0.5s var(--ease); }
 .fm-second { opacity: 0; transform: translateX(34px); transition: opacity 0.7s, transform 0.8s var(--ease); }
 .fm-box-2 { stroke: var(--r500); }
 .fm-body:not([data-state='0']) .fm-box { stroke: var(--r500); }
-.fm-body[data-state='1'] .fm-head { transform: translateX(7px) rotate(9deg) scaleX(0.9); }
+.fm-body[data-state='1'] .fm-head { transform: translateX(6px) rotate(8deg); }
 .fm-body[data-state='1'] .fm-box { transform: translateX(8px); transition: transform 0.8s var(--ease), stroke 0.4s; }
 .fm-body[data-state='2'] .fm-pupils { animation: glance 2.2s ease-in-out; }
-@keyframes glance { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-3px); } 70% { transform: translateX(3px); } }
+@keyframes glance { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 70% { transform: translateX(4px); } }
 .fm-body[data-state='3'] .fm-second { opacity: 1; transform: none; }
-.fm-body[data-state='3'] .fm-main { transform: translateX(-26px); }
+.fm-body[data-state='3'] .fm-main { transform: translateX(-30px); }
 .fm-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; align-content: start; }
 .fm-list li { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-radius: 12px; background: #fff; border: 1px solid var(--line); font-size: 0.85rem; font-weight: 500; color: var(--muted); transition: background 0.4s, color 0.4s, border-color 0.4s, transform 0.4s var(--ease); }
 .fm-list li.is-active { background: var(--r700); border-color: var(--r700); color: #fff; font-weight: 700; transform: translateX(6px); }
@@ -120,3 +120,10 @@
   .cb .cb-count .c0 { opacity: 0; }
   .cb .cb-count .c1 { opacity: 1; }
 }
+
+/* Codey the cat: blinking and head pivot */
+.cat-eyes-closed { opacity: 0; animation: catBlinkClosed 5.2s steps(1) infinite; }
+.cat-eyes-open { animation: catBlinkOpen 5.2s steps(1) infinite; }
+@keyframes catBlinkOpen { 0%, 93% { opacity: 1; } 94%, 97% { opacity: 0; } 98%, 100% { opacity: 1; } }
+@keyframes catBlinkClosed { 0%, 93% { opacity: 0; } 94%, 97% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .cat-eyes-closed { opacity: 0; } .cat-eyes-open { opacity: 1; } }

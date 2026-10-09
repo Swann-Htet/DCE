@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { AppWindow, Eye, MousePointer2, ScanFace, Users, ZoomIn, ZoomOut } from 'lucide-react';
 import { useInView, useStepper } from '../../lib/useStepper';
-import Portrait, { PALETTES } from './Portrait';
+import Portrait, { HEAD_BOX, PALETTES } from './Portrait';
 
 const STUDENTS = [
   { name: 'Student A', p: PALETTES.main },
@@ -30,7 +30,7 @@ function Zoomed({ index, event, onBack }) {
         <defs><linearGradient id="mmz" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#efeded" /><stop offset="1" stopColor="#d6d3d3" /></linearGradient></defs>
         <rect width="320" height="240" fill="url(#mmz)" />
         <Portrait p={s.p} />
-        {event && <rect className="fm-box" x="99" y="26" width="122" height="150" rx="12" style={{ stroke: 'var(--r500)' }} />}
+        {event && <rect className="fm-box" {...HEAD_BOX} rx="14" style={{ stroke: 'var(--r500)' }} />}
       </svg>
       <span className="mm-zoom-name"><ZoomIn size={13} /> {s.name}</span>
       <span className={`mm-zoom-status${event ? ' alert' : ''}`}>
@@ -70,7 +70,7 @@ export default function MonitorMock() {
               return (
                 <button key={name} type="button" className={`mm-tile${ev ? ' flagged' : ''}${current ? ' current' : ''}`}
                   aria-label={`Zoom in on ${name}${ev ? `, ${ev.label}` : ''}`} onClick={() => setPinned(i)}>
-                  <svg viewBox="0 0 320 240" className="mm-face" aria-hidden="true"><Portrait p={p} /></svg>
+                  <svg viewBox="0 0 320 240" className="mm-face" aria-hidden="true"><Portrait p={p} blinkDelay={i * 0.9} /></svg>
                   <span className="mm-name">{name}</span>
                   {ev && <span className="mm-badge"><ev.Icon size={11} /></span>}
                   <span className="mm-hint" aria-hidden="true"><ZoomIn size={14} /></span>

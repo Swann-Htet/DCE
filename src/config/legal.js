@@ -1,9 +1,8 @@
-// Privacy Policy content. DRAFT v1.0, written for the DCE student project.
-// Values marked as proposals (retention periods, response times) are commitments the owners must confirm before launch.
+// Privacy Policy content, v1.0, written for the DCE student project and confirmed by the project owners.
 // Facts about the stack (Supabase Tokyo region, Vercel hosting, row-level security, disabled sign-ups) reflect how
 // this repository is configured. Nothing here claims an ISO certification.
 
-export const POLICY_VERSION = '1.0 (draft)';
+export const POLICY_VERSION = '1.0';
 export const POLICY_DATE = '9 October 2026';
 
 export const OWNERS = [

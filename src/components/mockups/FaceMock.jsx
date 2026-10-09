@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Camera, Eye, ScanFace, Users } from 'lucide-react';
 import { useInView, useStepper } from '../../lib/useStepper';
-import Portrait, { PALETTES } from './Portrait';
+import Portrait, { HEAD_BOX, PALETTES } from './Portrait';
 
 const STEPS = [2000, 2300, 2300, 2700];
 const LABELS = [
@@ -32,11 +32,11 @@ export default function FaceMock() {
             <circle cx="60" cy="50" r="46" fill="#fff" opacity="0.45" />
             <g className="fm-main">
               <Portrait p={PALETTES.main} animated />
-              <rect className="fm-box" x="99" y="26" width="122" height="150" rx="12" />
+              <rect className="fm-box" {...HEAD_BOX} rx="14" />
             </g>
             <g className="fm-second">
-              <g transform="translate(174 90) scale(0.55)"><Portrait p={PALETTES.other} /></g>
-              <rect className="fm-box fm-box-2" x="231" y="104" width="62" height="84" rx="9" />
+              <g transform="translate(194.4 95.7) scale(0.46)"><Portrait p={PALETTES.other} blinkDelay={1.7} /></g>
+              <rect className="fm-box fm-box-2" x="222" y="110" width="92" height="80" rx="9" />
             </g>
           </svg>
           <span className={`fm-chip${flagged ? ' alert' : ''}`} key={step}>

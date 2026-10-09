@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, TriangleAlert } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import Intro from '../components/Intro';
 import BrandLogo from '../components/BrandLogo';
 import {
@@ -35,16 +35,6 @@ export default function Privacy() {
               university rules apply.
             </Intro>
             <p className="legal-meta" data-reveal style={{ '--i': 3 }}>Version {POLICY_VERSION} · Last updated {POLICY_DATE}</p>
-            <div className="notice notice-info" role="note" data-reveal style={{ '--i': 4 }}>
-              <TriangleAlert size={22} aria-hidden="true" />
-              <div>
-                <p className="notice-title">Draft policy, pending review.</p>
-                <p>
-                  This policy is being reviewed by the project advisor. References to university regulations are
-                  general and will be updated with their official titles once the university confirms them.
-                </p>
-              </div>
-            </div>
           </div>
           <div className="panel-light" data-reveal="scale" style={{ '--i': 2 }}>
             <p className="panel-kicker dark">Project owners</p>

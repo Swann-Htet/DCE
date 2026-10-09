@@ -9,8 +9,8 @@ export default function Footer() {
       <div className="container footer-grid">
         <div>
           <div className="footer-logos">
-            <span className="logo-chip"><BrandLogo height={44} /></span>
-            <span className="logo-chip"><img src="/dce-department.png" alt={`${PROGRAM}, ${INSTITUTION}`} height="52" width="52" loading="lazy" /></span>
+            <BrandLogo height={46} variant="light" />
+            <img className="footer-dept" src="/dce-department-light.png" alt={`${PROGRAM}, ${INSTITUTION}`} height="56" width="56" loading="lazy" />
           </div>
           <p className="footer-note">
             Online examination management and proctoring-related monitoring, in use at Mae Fah Luang University, Digital and Communication Engineering.
