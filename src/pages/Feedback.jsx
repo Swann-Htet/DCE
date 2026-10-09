@@ -6,13 +6,13 @@ import LecturerSurvey from '../components/surveys/LecturerSurvey';
 import Intro from '../components/Intro';
 
 const TABS = [
-  { id: 'ux', label: 'Website UX Survey', Icon: Layout, Panel: UxSurvey },
   { id: 'lec', label: 'Lecturer Panel Survey', Icon: GraduationCap, Panel: LecturerSurvey },
+  { id: 'ux', label: 'Website UX Survey', Icon: Layout, Panel: UxSurvey },
   { id: 'ads', label: 'Advertising Preferences', Icon: Megaphone, Panel: AdSurvey },
 ];
 
 export default function Feedback() {
-  const [active, setActive] = useState('ux');
+  const [active, setActive] = useState(TABS[0].id); // Lecturer Panel Survey opens first
   const tabRefs = useRef({});
 
   // WAI-ARIA tabs: arrow keys (any direction), Home and End move between tabs.
@@ -35,7 +35,7 @@ export default function Feedback() {
       <div className="blob blob-soft" aria-hidden="true" />
       <div className="container">
         <Intro as="h1" id="feedback-title" eyebrow="Feedback" title="Tell us how we did">
-          Three short surveys: this website, the lecturer panel, and promotional content preferences. Pick any, or all.
+          Three short surveys: the lecturer panel, this website, and promotional content preferences. Pick any, or all.
         </Intro>
         <div role="tablist" aria-label="Surveys" className="tabs" onKeyDown={onKeyDown} data-reveal style={{ '--i': 3 }}>
           {TABS.map(({ id, label, Icon }) => (

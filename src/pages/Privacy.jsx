@@ -44,7 +44,8 @@ export default function Privacy() {
             <p className="owners-advisor"><span>Advisor and coordinator</span>{ADVISOR}</p>
             <div className="logo-row">
               <BrandLogo height={52} />
-              <img src="/dce-department.png" alt={`${PROGRAM}, ${INSTITUTION}`} width="64" height="64" loading="lazy" />
+              <img src="/dce-department.png" alt={`${PROGRAM}, ${SCHOOL}`} width="64" height="64" loading="lazy" />
+              <img className="logo-mfu" src="/mfu-logo.png" alt={INSTITUTION} width="62" height="65" loading="lazy" />
             </div>
             <p className="logo-caption">{PROGRAM}, {SCHOOL}, {INSTITUTION}</p>
           </div>
@@ -135,6 +136,11 @@ export default function Privacy() {
             <section id="iso">
               <h2>ISO standards we use as guidance</h2>
               <p className="legal-callout"><ShieldCheck size={18} aria-hidden="true" /> {ISO_NOTE}</p>
+              <ul className="std-badges plain" aria-label="Standards used as guidance">
+                {ISO.map((i) => (
+                  <li key={i.std}><span className="std-iso">ISO</span><span className="std-num">{i.std.replace(/^ISO(\/IEC)? /, '')}</span></li>
+                ))}
+              </ul>
               <div className="legal-table" role="region" aria-label="ISO standards" tabIndex={0}>
                 <table>
                   <thead><tr><th>Standard</th><th>Topic</th><th>How we apply it</th></tr></thead>
@@ -145,6 +151,10 @@ export default function Privacy() {
 
             <section id="mfu">
               <h2>MFU rules and regulations</h2>
+              <div className="mfu-banner">
+                <img src="/mfu-logo.png" alt={INSTITUTION} width="84" height="88" loading="lazy" />
+                <p>{INSTITUTION}<br /><span>{PROGRAM}, {SCHOOL}</span></p>
+              </div>
               <ul className="legal-list">{MFU.map((m) => <li key={m}>{m}</li>)}</ul>
             </section>
 

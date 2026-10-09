@@ -72,3 +72,25 @@
 .person-bio { font-size: 0.88rem; line-height: 1.5; }
 .bio-link { color: var(--r600); font-size: 0.82rem; font-weight: 600; text-decoration: none; word-break: break-all; transition: color 0.2s; }
 .bio-link:hover, .bio-link:focus-visible { color: var(--r500); text-decoration: none; }
+
+/* Slim, branded scrollbars (page and inner scroll areas) */
+@supports (-moz-appearance: none) {
+  html, .legal-table, .table-wrap, pre { scrollbar-width: thin; scrollbar-color: #9b2323 transparent; }
+}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #b9a3a1; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active { background: #9b2323; }
+::-webkit-scrollbar-corner { background: transparent; }
+
+/* Privacy page: MFU logo and standards badges */
+.logo-row .logo-mfu { height: 88px; width: auto; }
+.mfu-banner { display: flex; align-items: center; gap: 18px; padding: 16px 20px; margin-bottom: 18px; border: 1px solid var(--line); border-radius: 18px; background: var(--cream); }
+.mfu-banner img { height: 88px; width: auto; flex: none; }
+.legal-body .mfu-banner p { margin: 0; color: var(--ink); font-weight: 700; font-size: 1.05rem; line-height: 1.4; }
+.mfu-banner span { color: var(--muted); font-weight: 500; font-size: 0.9rem; }
+.std-badges { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
+.std-badges li { display: inline-flex; align-items: stretch; border-radius: 10px; overflow: hidden; border: 1px solid var(--r200); font-size: 0.85rem; font-weight: 700; }
+.std-iso { padding: 6px 10px; background: var(--r700); color: #fff; letter-spacing: 0.08em; }
+.std-num { padding: 6px 12px; background: #fff; color: var(--r800); }
+@media (max-width: 560px) { .mfu-banner { flex-direction: column; align-items: flex-start; } }
