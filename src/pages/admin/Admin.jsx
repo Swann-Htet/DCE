@@ -44,7 +44,7 @@ export default function Admin() {
       <div className="admin-center">
         <div className="card admin-card">
           <h1 className="form-title">Admin panel</h1>
-          <p>Supabase is not configured. Set <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> (see README), then restart.</p>
+          <p>Supabase is not configured. Set <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> (or the <code>NEXT_PUBLIC_</code> equivalents), then redeploy.</p>
           <Link to="/" className="btn btn-primary">Back to site</Link>
         </div>
       </div>

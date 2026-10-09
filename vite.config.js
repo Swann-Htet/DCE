@@ -14,5 +14,7 @@ const devCollector = {
 
 export default defineConfig({
   plugins: [react(), devCollector],
+  // Only these prefixes reach the browser bundle. Never add an empty prefix or SUPABASE_ (it would expose secrets).
+  envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
   server: { port: 5174 },
 });
