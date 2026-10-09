@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.env.local
+data
+CLAUDE_ADS_WEBSITE_BRIEF.md
+.claude
