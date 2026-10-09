@@ -10,6 +10,37 @@ const LABELS = [
   { Icon: Users, text: '2 faces detected' },
 ];
 
+const MAIN = { skin: '#f2cdb9', shade: '#e2ad95', hair: '#3a2626', shirt: '#7a1a1a', cheek: '#e9806f' };
+const OTHER = { skin: '#ebc2aa', shade: '#d9a68e', hair: '#1f1616', shirt: '#4a1010', cheek: '#e07a68' };
+
+// One friendly flat-style person, drawn around (160, 106). `animated` adds the head/eye hooks used by the loop.
+function Person({ c, animated }) {
+  return (
+    <g>
+      <path d="M62 300C62 232 104 184 160 182C216 184 258 232 258 300Z" fill={c.shirt} />
+      <path d="M132 186L160 214L188 186L178 181L160 198L142 181Z" fill="#fff" opacity="0.92" />
+      <path d="M143 148h34v38q-17 14-34 0z" fill={c.shade} />
+      <g className={animated ? 'fm-head' : undefined}>
+        <ellipse cx="119" cy="108" rx="7" ry="12" fill={c.skin} />
+        <ellipse cx="201" cy="108" rx="7" ry="12" fill={c.skin} />
+        <ellipse cx="160" cy="106" rx="41" ry="50" fill={c.skin} />
+        <path d="M118 106C111 66 134 43 162 43C192 43 211 66 202 106C198 89 190 77 176 71C160 83 137 83 125 93C121 97 119 101 118 106Z" fill={c.hair} />
+        <circle cx="134" cy="124" r="8" fill={c.cheek} opacity="0.28" />
+        <circle cx="186" cy="124" r="8" fill={c.cheek} opacity="0.28" />
+        <path d="M135 92q9-5 17-1M168 91q8-4 17 1" stroke={c.hair} strokeWidth="3.2" strokeLinecap="round" fill="none" />
+        <ellipse cx="144" cy="104" rx="8" ry="5.6" fill="#fff" />
+        <ellipse cx="176" cy="104" rx="8" ry="5.6" fill="#fff" />
+        <g className={animated ? 'fm-pupils' : undefined}>
+          <circle cx="144" cy="104" r="3.6" fill="#2b1b1b" /><circle cx="176" cy="104" r="3.6" fill="#2b1b1b" />
+          <circle cx="145.2" cy="102.8" r="1.1" fill="#fff" /><circle cx="177.2" cy="102.8" r="1.1" fill="#fff" />
+        </g>
+        <path d="M160 108q-5 14 0 19q4 2 8-1" stroke={c.shade} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M147 135q13 11 26 0" stroke="#b4574f" strokeWidth="3.2" strokeLinecap="round" fill="none" />
+      </g>
+    </g>
+  );
+}
+
 // Conceptual only: shows how face-related signals could be flagged for human review.
 export default function FaceMock() {
   const ref = useRef(null);
@@ -25,28 +56,17 @@ export default function FaceMock() {
         <div className="fm-cam">
           <svg viewBox="0 0 320 240" className="fm-svg">
             <defs>
-              <linearGradient id="fm-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#3a1212" /><stop offset="1" stopColor="#1a0505" /></linearGradient>
+              <linearGradient id="fm-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#efeded" /><stop offset="1" stopColor="#d6d3d3" /></linearGradient>
             </defs>
             <rect width="320" height="240" fill="url(#fm-bg)" />
+            <circle cx="60" cy="50" r="46" fill="#fff" opacity="0.45" />
             <g className="fm-main">
-              <path d="M78 240c8-48 44-62 82-62s74 14 82 62z" fill="#7a2b2b" />
-              <rect x="146" y="150" width="28" height="32" rx="8" fill="#d9b5ad" />
-              <g className="fm-head">
-                <ellipse cx="160" cy="104" rx="40" ry="50" fill="#e8c9c1" />
-                <path d="M118 96c2-34 24-48 44-48s40 14 42 48c-10-14-26-22-44-22s-32 8-42 22z" fill="#3a1414" />
-                <ellipse cx="144" cy="104" rx="8" ry="5.5" fill="#fff" />
-                <ellipse cx="176" cy="104" rx="8" ry="5.5" fill="#fff" />
-                <g className="fm-pupils"><circle cx="144" cy="104" r="3.2" fill="#2a0c0c" /><circle cx="176" cy="104" r="3.2" fill="#2a0c0c" /></g>
-                <path d="M150 128q10 7 20 0" stroke="#a5655f" strokeWidth="3" fill="none" strokeLinecap="round" />
-              </g>
-              <rect className="fm-box" x="108" y="46" width="104" height="116" rx="10" />
+              <Person c={MAIN} animated />
+              <rect className="fm-box" x="104" y="38" width="112" height="126" rx="12" />
             </g>
             <g className="fm-second">
-              <path d="M236 240c3-24 18-34 34-34s30 10 34 34z" fill="#6b2626" />
-              <ellipse cx="270" cy="160" rx="22" ry="27" fill="#dcbdb5" />
-              <path d="M248 154c1-18 12-26 22-26s21 8 22 26c-6-8-14-12-22-12s-16 4-22 12z" fill="#2a0f0f" />
-              <circle cx="262" cy="160" r="2.6" fill="#2a0c0c" /><circle cx="278" cy="160" r="2.6" fill="#2a0c0c" />
-              <rect className="fm-box fm-box-2" x="244" y="130" width="52" height="64" rx="8" />
+              <g transform="translate(174 91.7) scale(0.55)"><Person c={OTHER} /></g>
+              <rect className="fm-box fm-box-2" x="232" y="110" width="60" height="70" rx="9" />
             </g>
           </svg>
           <span className={`fm-chip${flagged ? ' alert' : ''}`} key={step}>

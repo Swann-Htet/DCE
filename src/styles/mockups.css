@@ -42,8 +42,8 @@
 .cb-box { position: relative; width: 62%; padding: 36px 20px 20px; border-radius: 14px; border: 2px dashed var(--r200); background: #fff; margin-right: 24%; }
 .cb-label { position: absolute; top: 10px; left: 14px; display: inline-flex; gap: 6px; align-items: center; font-size: 0.75rem; font-weight: 700; color: var(--r600); text-transform: uppercase; letter-spacing: 0.08em; }
 .cb-banner { position: absolute; left: 22px; right: 22px; top: 14px; display: flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 12px; background: var(--r700); color: #fff; font-size: 0.9rem; font-weight: 600; opacity: 0; transform: translateY(-14px); }
-.cb-count { position: relative; display: inline-block; width: 1ch; height: 1.4em; overflow: hidden; vertical-align: bottom; }
-.cb-count strong { position: absolute; inset: 0; font-size: 1rem; }
+.cb-count { position: relative; display: inline-grid; place-items: center; width: 1.5em; height: 1.6em; line-height: 1; vertical-align: middle; }
+.cb-count strong { grid-area: 1 / 1; font-size: 1.05rem; line-height: 1; }
 .cb-count .c1 { opacity: 0; }
 .cb-cursor { left: 16%; top: 62%; }
 .cb.run .cb-cursor { animation: cbMove 9s ease-in-out infinite; }
@@ -78,17 +78,17 @@
 
 /* Face signals */
 .fm-body { display: grid; grid-template-columns: 1.5fr 1fr; gap: 16px; padding: 16px; background: var(--cream); min-height: 340px; }
-.fm-cam { position: relative; border-radius: 14px; overflow: hidden; background: #1a0505; align-self: start; }
+.fm-cam { position: relative; border-radius: 14px; overflow: hidden; background: #e4e1e1; border: 1px solid #d2cecd; align-self: start; }
 .fm-svg { display: block; width: 100%; height: auto; }
 .fm-chip { position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.95); color: var(--r800); font-size: 0.8rem; font-weight: 700; animation: rise 0.45s var(--ease); }
 .fm-chip.alert { background: var(--r700); color: #fff; }
-.fm-box { fill: none; stroke: #fff; stroke-width: 2.5; stroke-dasharray: 26 14; transition: stroke 0.4s; }
-.fm-head { transform-origin: 160px 104px; transition: transform 0.8s var(--ease); }
+.fm-box { fill: none; stroke: var(--r700); stroke-width: 2.5; stroke-dasharray: 26 14; transition: stroke 0.4s; }
+.fm-head { transform-origin: 160px 106px; transition: transform 0.8s var(--ease); }
 .fm-main { transition: transform 0.8s var(--ease); }
 .fm-pupils { transition: transform 0.5s var(--ease); }
 .fm-second { opacity: 0; transform: translateX(34px); transition: opacity 0.7s, transform 0.8s var(--ease); }
-.fm-box-2 { stroke: #ff9b9b; }
-.fm-body:not([data-state='0']) .fm-box { stroke: #ff9b9b; }
+.fm-box-2 { stroke: var(--r500); }
+.fm-body:not([data-state='0']) .fm-box { stroke: var(--r500); }
 .fm-body[data-state='1'] .fm-head { transform: translateX(18px) scaleX(0.82) rotate(6deg); }
 .fm-body[data-state='1'] .fm-box { transform: translateX(14px); transition: transform 0.8s var(--ease), stroke 0.4s; }
 .fm-body[data-state='2'] .fm-pupils { animation: glance 2.2s ease-in-out; }
