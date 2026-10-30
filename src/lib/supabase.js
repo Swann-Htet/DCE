@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../config/forms';
+import { DEFAULT_PLANS, DEFAULT_PRICING_TEXT } from '../config/pricing';
 
 // null when Supabase is not configured (the public site then falls back to static content).
 export const supabase = SUPABASE_URL && SUPABASE_ANON_KEY ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
@@ -20,6 +21,25 @@ export function useTeam() {
     return () => { alive = false; };
   }, []);
   return members;
+}
+
+// Public pricing. Starts with the built-in defaults so the page is never empty, then swaps in what the admin saved
+// (active plans only). If Supabase is off, the table is missing or it holds no plans, the defaults stay.
+export function usePricing() {
+  const [state, setState] = useState({ plans: DEFAULT_PLANS, text: DEFAULT_PRICING_TEXT, custom: false });
+  useEffect(() => {
+    if (!supabase) return undefined;
+    let alive = true;
+    Promise.all([
+      supabase.from('pricing_plans').select('*').eq('is_active', true).order('sort_order').order('created_at'),
+      supabase.from('pricing_settings').select('*').eq('id', 1).maybeSingle(),
+    ]).then(([p, s]) => {
+      if (!alive || p.error || !p.data?.length) return;
+      setState({ plans: p.data, text: { ...DEFAULT_PRICING_TEXT, ...(s.data ? { intro: s.data.intro ?? '', footnote: s.data.footnote ?? '' } : {}) }, custom: true });
+    });
+    return () => { alive = false; };
+  }, []);
+  return state;
 }
 
 // Auth state for the admin panel. isAdmin comes from the database (is_admin()), not from the browser.

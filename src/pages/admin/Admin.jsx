@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Inbox, LogOut, MessageSquareText, Users } from 'lucide-react';
+import { BarChart3, Inbox, LogOut, MessageSquareText, Tag, Users } from 'lucide-react';
 import { supabase, useAdminSession } from '../../lib/supabase';
 import AdminLogin from './AdminLogin';
 import Overview from './Overview';
 import SurveyResults from './SurveyResults';
 import Submissions from './Submissions';
 import TeamManager from './TeamManager';
+import PlanManager from './PlanManager';
 
 const TABS = [
   { id: 'overview', label: 'Overview', Icon: BarChart3 },
   { id: 'results', label: 'Survey results', Icon: MessageSquareText },
   { id: 'submissions', label: 'Submissions', Icon: Inbox },
   { id: 'team', label: 'Team & advisor', Icon: Users },
+  { id: 'pricing', label: 'Pricing', Icon: Tag },
 ];
 
 export default function Admin() {
@@ -89,6 +91,7 @@ export default function Admin() {
         {tab === 'results' && <SurveyResults surveys={data.surveys} />}
         {tab === 'submissions' && <Submissions surveys={data.surveys} demos={data.demos} reload={load} />}
         {tab === 'team' && <TeamManager />}
+        {tab === 'pricing' && <PlanManager />}
       </main>
     </div>
   );

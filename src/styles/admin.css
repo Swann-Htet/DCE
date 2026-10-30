@@ -97,3 +97,9 @@ pre { margin: 8px 0 0; font-size: 0.78rem; white-space: pre-wrap; max-height: 22
 .pill { align-self: flex-start; padding: 2px 10px; border-radius: 999px; background: var(--r100); color: var(--r800); font-weight: 600; font-size: 0.75rem; }
 .team-actions { display: flex; gap: 8px; }
 @media (max-width: 760px) { .admin-bar { padding: 10px 14px; } .admin-main { padding: 20px 14px 48px; } }
+
+/* Pricing manager */
+.plan-form { display: flex; flex-direction: column; gap: 16px; margin-top: 18px; }
+.plan-flags { display: flex; flex-direction: column; gap: 10px; }
+.plan-flag { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+.plan-star { color: var(--r700); vertical-align: -2px; }

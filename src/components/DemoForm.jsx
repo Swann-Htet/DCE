@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Send } from 'lucide-react';
 import Field, { FieldError } from './forms/Field';
 import SubmitNotice from './forms/SubmitNotice';
@@ -10,7 +11,10 @@ const EMPTY = { name: '', email: '', institution: '', role: '', interest: '', co
 
 export default function DemoForm() {
   const formRef = useRef(null);
-  const [values, setValues] = useState(EMPTY);
+  const [params] = useSearchParams();
+  // Coming from a pricing card (?plan=department): say which plan the visitor is interested in.
+  const plan = (params.get('plan') || '').replace(/[^a-z0-9-]/gi, '').slice(0, 40);
+  const [values, setValues] = useState(() => (plan ? { ...EMPTY, interest: `I am interested in the ${plan} plan.` } : EMPTY));
   const [errors, setErrors] = useState({});
   const [result, setResult] = useState(null);
   const [busy, setBusy] = useState(false);

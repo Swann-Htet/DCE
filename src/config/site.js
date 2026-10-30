@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { label: 'Features', to: '/features' },
   { label: 'How It Works', to: '/how-it-works' },
   { label: 'Security & Privacy', to: '/security' },
+  { label: 'Pricing', to: '/pricing' },
   { label: 'About Us', to: '/about' },
   { label: 'Feedback', to: '/feedback' },
 ];

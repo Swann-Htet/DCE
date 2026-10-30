@@ -1,0 +1,17 @@
+/* Pricing page */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; align-items: stretch; }
+.plan { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 30px 26px 26px; }
+.plan-featured { border: 2px solid var(--r700); box-shadow: 0 22px 54px rgba(122, 26, 26, 0.18); }
+.plan-badge { position: absolute; top: 16px; right: 18px; padding: 4px 14px; border-radius: 999px; background: var(--r700); color: #fff; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.plan-name { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+.plan-tagline { color: var(--muted); min-height: 3em; }
+.plan-price { display: flex; flex-direction: column; gap: 2px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.plan-price strong { font-size: 2.1rem; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+.plan-price span { font-size: 0.9rem; color: var(--muted); }
+.plan-features { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.plan-features li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.95rem; line-height: 1.45; }
+.plan-features svg { flex: none; margin-top: 2px; color: var(--r700); }
+.plan .btn { align-self: stretch; margin-top: 6px; }
+.btn-outline { background: transparent; border-color: var(--r700); color: var(--r700); }
+.btn-outline:hover { background: var(--r50); }
+.pricing-note { margin-top: 28px; max-width: 70ch; font-size: 0.9rem; color: var(--muted); }

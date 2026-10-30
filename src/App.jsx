@@ -12,6 +12,7 @@ import HowItWorks from './pages/HowItWorks';
 import Security from './pages/Security';
 import About from './pages/About';
 import Demo from './pages/Demo';
+import Pricing from './pages/Pricing';
 import Admin from './pages/admin/Admin';
 
 // New route -> start at the top.
@@ -47,6 +48,7 @@ function Shell() {
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/security" element={<Security />} />
             <Route path="/about" element={<About />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/demo" element={<Demo />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/privacy" element={<Privacy />} />
